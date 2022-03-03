@@ -92,9 +92,17 @@ public class CarSystem {
 
     public Truck createTruck() {
         var newTruck = new Truck();
-        System.out.println(personList);
-        System.out.print("Choose one of the owners listed above: ");
-        newTruck.setOwnedBy(getInteger());
+        if (personList.isEmpty()) {
+            System.out.println("No owners registered");
+            System.out.println("Register a new owner before registering a car");
+            System.out.println();
+            menu();
+        }
+        else {
+            System.out.println(personList);
+            System.out.print("Choose one of the owners listed above: ");
+            newTruck.setOwnedBy(getInteger());
+        }
         System.out.print("Producer: ");
         newTruck.setProducer(scanner.nextLine());
         System.out.print("Name: ");
@@ -112,9 +120,17 @@ public class CarSystem {
 
     public Van createVan() {
         var newVan = new Van();
-        System.out.println(personList);
-        System.out.print("Choose one of the owners listed above: ");
-        newVan.setOwnedBy(getInteger());
+        if (personList.isEmpty()) {
+            System.out.println("No owners registered");
+            System.out.println("Register a new owner before registering a car");
+            System.out.println();
+            menu();
+        }
+        else {
+            System.out.println(personList);
+            System.out.print("Choose one of the owners listed above: ");
+            newVan.setOwnedBy(getInteger());
+        }
         System.out.print("Producer: ");
         newVan.setProducer(scanner.nextLine());
         System.out.print("Name: ");
@@ -132,9 +148,17 @@ public class CarSystem {
 
     public Personal createPersonal() {
         var newPersonal = new Personal();
-        System.out.println(personList);
-        System.out.print("Choose one of the owners listed above: ");
-        newPersonal.setOwnedBy(getInteger());
+        if (personList.isEmpty()) {
+            System.out.println("No owners registered");
+            System.out.println("Register a new owner before registering a car");
+            System.out.println();
+            menu();
+        }
+        else {
+            System.out.println(personList);
+            System.out.print("Choose one of the owners listed above: ");
+            newPersonal.setOwnedBy(getInteger());
+        }
         System.out.print("Producer: ");
         newPersonal.setProducer(scanner.nextLine());
         System.out.print("Name: ");
