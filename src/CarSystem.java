@@ -10,7 +10,6 @@ public class CarSystem {
     ArrayList<Integer> carMileageList = new ArrayList<>();
 
     Calendar calendar = Calendar.getInstance();
-    //int currentYear = calendar.get(Calendar.YEAR);
 
     static void printMenu() {
         String menu = "** CAR SYSTEM MENU **\n";
@@ -68,7 +67,6 @@ public class CarSystem {
 
     int getChoice() {
         int i = getInteger();
-
         return i < 9 ? i : 0;
     }
 
@@ -194,27 +192,41 @@ public class CarSystem {
             }
         }
     }
-
     public void displayAverage() {
+
         OptionalDouble averagePersonAge = personAgeList
                 .stream()
                 .mapToDouble(a -> a)
                 .average();
-        System.out.println("Average person age: " + averagePersonAge.getAsDouble());
-        System.out.println();
+        try {
+            System.out.println("Average person age: " + averagePersonAge.getAsDouble());
+            System.out.println();
+        } catch (NoSuchElementException ex) {
+            System.out.println("No owners registered");
+            System.out.println();
+        }
 
         OptionalDouble averageCarAge = carAgeList
                 .stream()
                 .mapToDouble(a -> a)
                 .average();
-        System.out.println("Average car age: " + averageCarAge.getAsDouble());
-        System.out.println();
+        try {
+            System.out.println("Average car age: " + averageCarAge.getAsDouble());
+            System.out.println();
+        } catch (NoSuchElementException ex) {
+            System.out.println("No cars registered");
+            System.out.println();
+        }
 
         OptionalDouble averageCarMileage = carMileageList
                 .stream()
                 .mapToDouble(a -> a)
                 .average();
-        System.out.println("Average car mileage: " + averageCarMileage.getAsDouble());
-        System.out.println();
+        try {
+            System.out.println("Average car mileage: " + averageCarMileage.getAsDouble());
+            System.out.println();
+        } catch (NoSuchElementException ex) {
+        }
+
     }
 }
