@@ -35,10 +35,11 @@ public class CarSystem {
                 case 1:
                     personList.add(createPerson());
                     break;
+
                 case 2:
                     if (personList.isEmpty()) {
-                        System.out.println("No owners registered");
-                        System.out.println("Register a new owner before registering a car");
+                        System.out.println("No owners registered.");
+                        System.out.println("Register a new owner before registering a car.");
                         System.out.println();
                         break;
                     }
@@ -46,10 +47,11 @@ public class CarSystem {
                         carList.add(createTruck());
                         break;
                     }
+
                 case 3:
                     if (personList.isEmpty()) {
-                        System.out.println("No owners registered");
-                        System.out.println("Register a new owner before registering a car");
+                        System.out.println("No owners registered.");
+                        System.out.println("Register a new owner before registering a car.");
                         System.out.println();
                         break;
                     }
@@ -57,10 +59,11 @@ public class CarSystem {
                         carList.add(createVan());
                         break;
                     }
+
                 case 4:
                     if (personList.isEmpty()) {
-                        System.out.println("No owners registered");
-                        System.out.println("Register a new owner before registering a car");
+                        System.out.println("No owners registered.");
+                        System.out.println("Register a new owner before registering a car.");
                         System.out.println();
                         break;
                     }
@@ -68,20 +71,34 @@ public class CarSystem {
                         carList.add(createPersonal());
                         break;
                     }
+
                 case 5:
                     createTestData();
+                    System.out.println("Added test data.");
+                    System.out.println();
                     break;
+
                 case 6:
-                    display();
-                    break;
+                    if (personList.isEmpty()) {
+                        System.out.println("Nothing to see here... Move along...");
+                        System.out.println();
+                        break;
+                    }
+                    else {
+                        display();
+                        break;
+                    }
+
                 case 7:
                     displayAverage();
                     break;
+
                 case 8:
                     System.out.println("System is shutting down...");
                     break;
+
                 default:
-                    System.out.println("Error: choose option 1, 2, 3 or 4");
+                    System.out.println("Error; Choose options 1 - 8");
                     break;
             }
         }
@@ -191,19 +208,22 @@ public class CarSystem {
         Car car2 = new Van("Ford", "Transit", 2021, 3020, "2022-02-15", person2);
         Car car3 = new Personal("Toyota", "Prius", 2009, 162903, "2021-10-11", person3);
         Car car4 = new Personal("Ferrari", "F150", 2019, 50006, "2020-03-01", person4);
-        carList.addAll(List.of(new Car[]{car1, car2, car3, car4}));
+        Car car5 = new Van("Opel", "Vivaro", 2003, 200056, "2021-07-01", person2);
+        carList.addAll(List.of(new Car[]{car1, car2, car3, car4, car5}));
 
         carAgeList.addAll(List.of(
                 (calendar.get(Calendar.YEAR) - car1.getProductionYear()),
                 (calendar.get(Calendar.YEAR) - car2.getProductionYear()),
                 (calendar.get(Calendar.YEAR) - car3.getProductionYear()),
-                (calendar.get(Calendar.YEAR) - car4.getProductionYear())));
+                (calendar.get(Calendar.YEAR) - car4.getProductionYear()),
+                (calendar.get(Calendar.YEAR) - car5.getProductionYear())));
 
         carMileageList.addAll(List.of(
                 car1.getMileage(),
                 car2.getMileage(),
                 car3.getMileage(),
-                car4.getMileage()));
+                car4.getMileage(),
+                car5.getMileage()));
     }
 
     public void display() {
@@ -226,7 +246,7 @@ public class CarSystem {
             System.out.println("Average person age: " + averagePersonAge.getAsDouble());
             System.out.println();
         } catch (NoSuchElementException ex) {
-            System.out.println("No owners registered");
+            System.out.println("No owners registered.");
             System.out.println();
         }
 
@@ -238,7 +258,7 @@ public class CarSystem {
             System.out.println("Average car age: " + averageCarAge.getAsDouble());
             System.out.println();
         } catch (NoSuchElementException ex) {
-            System.out.println("No cars registered");
+            System.out.println("No cars registered.");
             System.out.println();
         }
 
@@ -251,6 +271,5 @@ public class CarSystem {
             System.out.println();
         } catch (NoSuchElementException ex) {
         }
-
     }
 }
